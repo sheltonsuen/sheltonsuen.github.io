@@ -25,6 +25,11 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run deploy`
+Builds the app for production and deploy it to github pages
+
+> using `npm run deploy -- -m 'commit message'` to specify the commit message of the deploy
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
