@@ -50,6 +50,7 @@
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1",
+    "styled-components": "^4.3.1",
     "terser-webpack-plugin": "1.2.2",
     "typescript": "3.4.3",
     "url-loader": "1.1.2",
@@ -127,10 +128,11 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^2.0.1",
-    "@storybook/react": "^5.0.11",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-links": "^5.0.11",
-    "@storybook/addons": "^5.0.11"
+    "@storybook/addons": "^5.0.11",
+    "@storybook/react": "^5.0.11",
+    "@types/styled-components": "^4.1.16",
+    "gh-pages": "^2.0.1"
   }
 }
