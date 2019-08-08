@@ -1,10 +1,10 @@
 # Xiaocong Sun
 ## Contact Method
 * Email: sheltonsuen@gmail.com
-* Mobile Phone: 159xxxx6693
+* Mobile Phone: 15982026693
 
 ## Personal Information
-* Name: Xiaocong Sun (孙晓聪) (Shelton Suen)
+* Name: Xiaocong Sun (Shelton Suen)
 * Birthday: 1996-01-15
 * Gender: Male
 
@@ -49,17 +49,17 @@
   * Platform: Mobile Web
   * Domain: Aircraft Industry
 
-* 2017-11 - 2018-01, assigned to two governments delivery project of GISDATA ltd.
+* 2017-11 - 2018-01, assigned to two governments delivery projects of GISDATA ltd.
   * Tech stack: Java, SSM
   * Role: Dev
   * Platform: Back-end Service of Web
-  * Domain: coal mine & visual government
+  * Domain: Mining & Visual Government
 
-* 2017-08 - 2017-10, assigned to three delivery project of Hansen ltd.
+* 2017-08 - 2017-10, assigned to three delivery projects of Hansen ltd.
   * Tech stack: Java, SSM
   * Role: Dev
   * Platform: Back-end Service of Web
-  * Domain: e-Commerce & online education & CMS
+  * Domain: E-Commerce & Online Education & CMS
 
 ## Hobby
 * Go lang
