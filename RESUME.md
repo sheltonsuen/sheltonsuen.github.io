@@ -1,10 +1,10 @@
 # Xiaocong Sun
 ## Contact Method
 * Email: sheltonsuen@gmail.com
-* Mobile Phone: 15982026693
+* Mobile Phone: 159xxxx6693
 
 ## Personal Information
-* Name: Xiaocong Sun (Shelton Suen)
+* Name: Xiaocong Sun 孙晓聪 (Shelton Suen)
 * Birthday: 1996-01-15
 * Gender: Male
 
