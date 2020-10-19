@@ -1,0 +1,49 @@
+body {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+.demo-container {
+  display: flex;
+  flex-flow: column-reverse wrap;
+  width: 80vw;
+  height: 50vh;
+  box-shadow: 0px 0px 7px 0px black;
+  margin: 1rem;
+}
+
+.swa-flight {
+  width: 15vmin;
+  height: 10vmin;
+}
+
+.swa-flight_css-transiton-flying {
+  margin-left: 65vw;
+  margin-bottom: 25vh;
+  transition: margin-left 8s cubic-bezier(0.51, 0.18, 0.79, 0.53),
+    margin-bottom 4s cubic-bezier(0.7, 0.21, 1, 1) 4s;
+}
+
+.swa-flight_css-animation-flying {
+  animation: xcoordinate 8s cubic-bezier(0.51, 0.18, 0.79, 0.53) infinite,
+    ycoordinate 8s cubic-bezier(0.7, 0.21, 1, 1) infinite;
+}
+
+@keyframes xcoordinate {
+  from {
+    margin-left: 0vw;
+  }
+  to {
+    margin-left: 65vw;
+  }
+}
+
+@keyframes ycoordinate {
+  50% {
+    margin-bottom: 0vw;
+  }
+  to {
+    margin-bottom: 25vw;
+  }
+}
