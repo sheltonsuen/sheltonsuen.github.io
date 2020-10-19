@@ -22,7 +22,7 @@ pretty_urls:
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
 
 # Directory
-source_dir: blog
+source_dir: source
 public_dir: public
 tag_dir: tags
 archive_dir: archives
@@ -98,7 +98,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: cactus
+theme: focus
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
