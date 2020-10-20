@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Web Animation | Shelton Suen</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="essay," />
+  
+
+  <meta name="description" content="Web AnimationAnimations are a huge part of making compelling web applications and sites. How to implement CSS Transition &amp; CSS Animation Web Animation API requestAnimationFrame  CSS Transition &amp;am">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web Animation">
+<meta property="og:url" content="https://sheltonsuen.github.io/2018/08/27/design/animation/webAnimation/index.html">
+<meta property="og:site_name" content="Shelton Suen">
+<meta property="og:description" content="Web AnimationAnimations are a huge part of making compelling web applications and sites. How to implement CSS Transition &amp; CSS Animation Web Animation API requestAnimationFrame  CSS Transition &amp;am">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-08-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-14T11:04:39.039Z">
+<meta property="article:author" content="Shelton Suen">
+<meta property="article:tag" content="essay">
+<meta name="twitter:card" content="summary">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">首页</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">首页</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/categories/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tags/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Web-Animation"><span class="toc-text">Web Animation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-implement"><span class="toc-text">How to implement</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-Transition-amp-CSS-Animation"><span class="toc-text">CSS Transition &amp; CSS Animation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-Transition"><span class="toc-text">CSS Transition</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Concepts"><span class="toc-text">Concepts</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Choose-properties-to-animate"><span class="toc-text">Choose properties to animate</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Set-the-animation-duration"><span class="toc-text">Set the animation duration</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Set-up-a-timing-function"><span class="toc-text">Set up a timing-function</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Set-a-deply"><span class="toc-text">Set a deply</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-Animation"><span class="toc-text">CSS Animation</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Describing-the-animation"><span class="toc-text">Describing the animation</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Describing-the-animation%E2%80%99s-style"><span class="toc-text">Describing the animation’s style</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#events"><span class="toc-text">events</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-Animation-API"><span class="toc-text">Web Animation API</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Concepts-1"><span class="toc-text">Concepts</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Timing-options"><span class="toc-text">Timing options</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Animation-Effect"><span class="toc-text">Animation Effect</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Animation"><span class="toc-text">Animation</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#requestAnimationFrame"><span class="toc-text">requestAnimationFrame</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Syntax"><span class="toc-text">Syntax</span></a></li></ol></li></ol></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-design/animation/webAnimation" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Web Animation</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.08.28</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Shelton Suen</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="Web-Animation"><a href="#Web-Animation" class="headerlink" title="Web Animation"></a>Web Animation</h1><p>Animations are a huge part of making compelling web applications and sites.</p>
+<h2 id="How-to-implement"><a href="#How-to-implement" class="headerlink" title="How to implement"></a>How to implement</h2><ul>
+<li>CSS Transition &amp; CSS Animation</li>
+<li>Web Animation API</li>
+<li>requestAnimationFrame</li>
+</ul>
+<h3 id="CSS-Transition-amp-CSS-Animation"><a href="#CSS-Transition-amp-CSS-Animation" class="headerlink" title="CSS Transition &amp; CSS Animation"></a>CSS Transition &amp; CSS Animation</h3><h4 id="CSS-Transition"><a href="#CSS-Transition" class="headerlink" title="CSS Transition"></a>CSS Transition</h4><p>Create gradual transitions between the values of specific CSS properties.</p>
+<ul>
+<li><p><a href="/demo/webAnimation/index.html">Demo Link</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions">MDN Documentation</a></p>
+</li>
+</ul>
+<h5 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h5><p>CSS transitions let you decide</p>
+<ul>
+<li><p>which properties to animate<br>by listing them explicitly</p>
+</li>
+<li><p>when the animation will start<br>by setting a delay (seconds)</p>
+</li>
+<li><p>how long the transition will last<br>by setting a duration</p>
+</li>
+<li><p>how the transition will run<br>by defining a timing function</p>
+</li>
+</ul>
+<h6 id="Choose-properties-to-animate"><a href="#Choose-properties-to-animate" class="headerlink" title="Choose properties to animate"></a>Choose properties to animate</h6><p>Specifies the name or names of the CSS properties to which transitions should be applied.</p>
+<ul>
+<li>Using <code>transition-property</code></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.swa-flight</span> &#123;</span><br><span class="line">  <span class="attribute">transition-property</span>: margin-left, margin-bottom;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Using <code>transition</code> as shorthand</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.swa-flight</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: margin-left, margin-bottom;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>if just declare the property, changes to the properties occur as usual.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">List of properties can be animated</a></p>
+<p>Using CSS transform property<br>The transform CSS property lets you rotate, scale, skew, or translate an element. It modifies the coordinate space of the CSS visual formatting model.<br><a target="_blank" rel="noopener" href="https://www.quackit.com/css/functions/css_matrix_function.cfm">MDN transform doc</a></p>
+<h6 id="Set-the-animation-duration"><a href="#Set-the-animation-duration" class="headerlink" title="Set the animation duration"></a>Set the animation duration</h6><p>Specifies the duration over which transitions should occur.</p>
+<ul>
+<li>Using <code>transition-duration</code></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.swa-flight</span> &#123;</span><br><span class="line">  <span class="attribute">transition-property</span>: mrigin-left, margin-bottom;</span><br><span class="line">  <span class="attribute">transition-duration</span>: <span class="number">8s</span>, <span class="number">4s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Using <code>transition</code> as shorthand</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.swa-flight</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: width <span class="number">8s</span>, height <span class="number">4s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="Set-up-a-timing-function"><a href="#Set-up-a-timing-function" class="headerlink" title="Set up a timing-function"></a>Set up a timing-function</h6><p>Specifies a function to define how intermediate values for properties are computed.</p>
+<ul>
+<li>Using <code>transition-timing-function</code></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.swa-flight</span> &#123;</span><br><span class="line">  <span class="attribute">transition-property</span>: margin-left, margin-bottom;</span><br><span class="line">  <span class="attribute">transition-duration</span>: <span class="number">8s</span>, <span class="number">4s</span>;</span><br><span class="line">  <span class="attribute">transition-timing-function</span>: <span class="built_in">cubic-bezier</span>(<span class="number">0.51</span>, <span class="number">0.18</span>, <span class="number">0.79</span>, <span class="number">0.53</span>), <span class="built_in">cubic-bezier</span>(<span class="number">0.7</span>, <span class="number">0.21</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Using <code>transition</code> as shorthand</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.swa-flight</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: margin-left <span class="number">8s</span> <span class="built_in">cubic-bezier</span>(<span class="number">0.51</span>, <span class="number">0.18</span>, <span class="number">0.79</span>, <span class="number">0.53</span>), margin-bottom</span><br><span class="line">      <span class="number">4s</span> <span class="built_in">cubic-bezier</span>(<span class="number">0.7</span>, <span class="number">0.21</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://easings.net/">Easing function list</a></p>
+<p><a target="_blank" rel="noopener" href="http://cubic-bezier.com/">cubic-bezier</a></p>
+<h6 id="Set-a-deply"><a href="#Set-a-deply" class="headerlink" title="Set a deply"></a>Set a deply</h6><p>Defines how long to wait between the time a property is changed and the transition actually begins.</p>
+<ul>
+<li>Using <code>transition-delay</code></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.swa-flight</span> &#123;</span><br><span class="line">  <span class="attribute">transition-property</span>: margin-left, margin-bottom;</span><br><span class="line">  <span class="attribute">transition-duration</span>: <span class="number">8s</span>, <span class="number">4s</span>;</span><br><span class="line">  <span class="attribute">transition-timing-function</span>: <span class="built_in">cubic-bezier</span>(<span class="number">0.51</span>, <span class="number">0.18</span>, <span class="number">0.79</span>, <span class="number">0.53</span>), <span class="built_in">cubic-bezier</span>(<span class="number">0.7</span>, <span class="number">0.21</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">  <span class="attribute">transition-delay</span>: <span class="number">0s</span>, <span class="number">4s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Using <code>transition</code> as shorthand</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.swa-flight</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: margin-left <span class="number">8s</span> <span class="built_in">cubic-bezier</span>(<span class="number">0.51</span>, <span class="number">0.18</span>, <span class="number">0.79</span>, <span class="number">0.53</span>), margin-bottom</span><br><span class="line">      <span class="number">4s</span> <span class="built_in">cubic-bezier</span>(<span class="number">0.7</span>, <span class="number">0.21</span>, <span class="number">1</span>, <span class="number">1</span>) <span class="number">4s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="CSS-Animation"><a href="#CSS-Animation" class="headerlink" title="CSS Animation"></a>CSS Animation</h4><p>Animations consist of two components, a style describing the CSS animation and a set of keyframes that indicate the start and end states of the animation’s style, as well as possible intermediate waypoints.</p>
+<h6 id="Describing-the-animation"><a href="#Describing-the-animation" class="headerlink" title="Describing the animation"></a>Describing the animation</h6><p>Below properties can be shorted as <code>animation</code> property.</p>
+<ul>
+<li><code>animation-name</code></li>
+<li><code>animation-duration</code></li>
+<li><code>animation-timing-function</code></li>
+<li><code>animation-delay</code></li>
+<li><code>animation-iteration-count</code></li>
+<li><code>animation-direction</code></li>
+<li><code>animation-fill-mode</code></li>
+<li><code>animation-play-state</code></li>
+</ul>
+<h6 id="Describing-the-animation’s-style"><a href="#Describing-the-animation’s-style" class="headerlink" title="Describing the animation’s style"></a>Describing the animation’s style</h6><p>The <code>@keyframes</code> CSS at-rule controls the intermediate steps in a CSS animation sequence</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes">MDN Doc</a></p>
+<h6 id="events"><a href="#events" class="headerlink" title="events"></a>events</h6><p><code>animationiteration</code>, <code>animationend</code>, <code>animationstart</code></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations">MDN Doc</a></p>
+<h3 id="Web-Animation-API"><a href="#Web-Animation-API" class="headerlink" title="Web Animation API"></a>Web Animation API</h3><p>The Web Animations API lets us construct animations and control their playback with JavaScript.</p>
+<h4 id="Concepts-1"><a href="#Concepts-1" class="headerlink" title="Concepts"></a>Concepts</h4><ul>
+<li>Timing</li>
+<li>Animation</li>
+<li>Animation Effect</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Web_Animations_API_Concepts">MDN Doc</a></p>
+<h5 id="Timing-options"><a href="#Timing-options" class="headerlink" title="Timing options"></a>Timing options</h5><p>Including duratiion, fill … etc</p>
+<h5 id="Animation-Effect"><a href="#Animation-Effect" class="headerlink" title="Animation Effect"></a>Animation Effect</h5><p>It’s a bundle of information including at the bare minimum a set of keys and the duration they need to be animated over.</p>
+<h5 id="Animation"><a href="#Animation" class="headerlink" title="Animation"></a>Animation</h5><p>Use the Animation Object’s methods to play, pause, seek, and control the animation’s playback direction and speed.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> drinking = <span class="built_in">document</span></span><br><span class="line">  .getElementById(<span class="string">&#x27;liquid&#x27;</span>)</span><br><span class="line">  .animate([&#123; <span class="attr">height</span>: <span class="string">&#x27;100%&#x27;</span> &#125;, &#123; <span class="attr">height</span>: <span class="string">&#x27;0&#x27;</span> &#125;], &#123;</span><br><span class="line">    fill: <span class="string">&#x27;forwards&#x27;</span>,</span><br><span class="line">    duration: <span class="number">2000</span></span><br><span class="line">  &#125;);</span><br><span class="line">drinking.pause();</span><br></pre></td></tr></table></figure>
+
+<h3 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a>requestAnimationFrame</h3><p>tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint.</p>
+<h4 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h4><p><code>window.requestAnimationFrame(callback);</code></p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持forsigner</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2015/12/30/algorithm/OJ/oilDeposits/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2019/07/14/go/tinygo/onBoarding/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/categories/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tags/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '277317290454635afa73',
+  clientSecret: '78223c859304da5e8d71bfce136d436c6ff95c37',
+  repo: 'blog-comment',
+  owner: 'forsigner',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: md5(location.pathname),
+  admin: ['forsigner'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Clean Ubuntu Junk | Shelton Suen</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="essay," />
+  
+
+  <meta name="description" content="Descriptionlinux 和 windows 系统不同，linux 不会产生无用垃圾文件，但是在升级缓存中，linux 不会自动删除这些文件，还是很占硬盘的！ 一、删除缓存1，非常有用的清理命令：sudo apt-get autoclean 清理旧版本的软件缓存sudo apt-get clean 清理所有软件缓存sudo apt-get autoremove 删除系统不再使用的孤立软件这">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Clean Ubuntu Junk">
+<meta property="og:url" content="https://sheltonsuen.github.io/2015/12/27/essay/techs/cleanUbuntuJunk/index.html">
+<meta property="og:site_name" content="Shelton Suen">
+<meta property="og:description" content="Descriptionlinux 和 windows 系统不同，linux 不会产生无用垃圾文件，但是在升级缓存中，linux 不会自动删除这些文件，还是很占硬盘的！ 一、删除缓存1，非常有用的清理命令：sudo apt-get autoclean 清理旧版本的软件缓存sudo apt-get clean 清理所有软件缓存sudo apt-get autoremove 删除系统不再使用的孤立软件这">
+<meta property="og:locale">
+<meta property="article:published_time" content="2015-12-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-14T11:04:39.041Z">
+<meta property="article:author" content="Shelton Suen">
+<meta property="article:tag" content="essay">
+<meta name="twitter:card" content="summary">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">首页</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">首页</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/categories/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tags/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Description"><span class="toc-text">Description</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%88%A0%E9%99%A4%E7%BC%93%E5%AD%98"><span class="toc-text">一、删除缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%8C%E9%9D%9E%E5%B8%B8%E6%9C%89%E7%94%A8%E7%9A%84%E6%B8%85%E7%90%86%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="toc-text">1，非常有用的清理命令：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%8C%E6%B8%85%E7%90%86-opera-firefox-%E7%9A%84%E7%BC%93%E5%AD%98%E6%96%87%E4%BB%B6%EF%BC%9A"><span class="toc-text">2，清理 opera firefox 的缓存文件：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%EF%BC%8C%E6%B8%85%E7%90%86-Linux-%E4%B8%8B%E5%AD%A4%E7%AB%8B%E7%9A%84%E5%8C%85%EF%BC%9A"><span class="toc-text">3，清理 Linux 下孤立的包：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%EF%BC%8C%E5%8D%B8%E8%BD%BD%EF%BC%9Atracker"><span class="toc-text">4，卸载：tracker</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%88%A0%E9%99%A4%E8%BD%AF%E4%BB%B6"><span class="toc-text">二、删除软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%88%A0%E9%99%A4%E5%A4%9A%E4%BD%99%E5%86%85%E6%A0%B8"><span class="toc-text">三、删除多余内核</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%8C%E9%A6%96%E5%85%88%E8%A6%81%E4%BD%BF%E7%94%A8%E8%BF%99%E4%B8%AA%E5%91%BD%E4%BB%A4%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D-Ubuntu-%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E7%9A%84%E5%86%85%E6%A0%B8"><span class="toc-text">1，首先要使用这个命令查看当前 Ubuntu 系统使用的内核</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%8C%E5%86%8D%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E5%86%85%E6%A0%B8"><span class="toc-text">2，再查看所有内核</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%EF%BC%8C%E6%9C%80%E5%90%8E%E5%B0%8F%E5%BF%83%E7%BF%BC%E7%BF%BC%E5%9C%B0%E5%88%A0%E9%99%A4%E5%90%A7"><span class="toc-text">3，最后小心翼翼地删除吧</span></a></li></ol></li></ol></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-essay/techs/cleanUbuntuJunk" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Clean Ubuntu Junk</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2015.12.28</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Shelton Suen</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>linux 和 windows 系统不同，linux 不会产生无用垃圾文件，但是在升级缓存中，linux 不会自动删除这些文件，还是很占硬盘的！</p>
+<h2 id="一、删除缓存"><a href="#一、删除缓存" class="headerlink" title="一、删除缓存"></a>一、删除缓存</h2><h4 id="1，非常有用的清理命令："><a href="#1，非常有用的清理命令：" class="headerlink" title="1，非常有用的清理命令："></a>1，非常有用的清理命令：</h4><p><code>sudo apt-get autoclean</code> 清理旧版本的软件缓存<br><code>sudo apt-get clean</code> 清理所有软件缓存<br><code>sudo apt-get autoremove</code> 删除系统不再使用的孤立软件<br>这三个命令主要清理升级缓存以及无用包的。</p>
+<h4 id="2，清理-opera-firefox-的缓存文件："><a href="#2，清理-opera-firefox-的缓存文件：" class="headerlink" title="2，清理 opera firefox 的缓存文件："></a>2，清理 opera firefox 的缓存文件：</h4><p><code>ls ~/.opera/cache4</code><br><code>ls ~/.mozilla/firefox/\*.default/Cache</code></p>
+<h4 id="3，清理-Linux-下孤立的包："><a href="#3，清理-Linux-下孤立的包：" class="headerlink" title="3，清理 Linux 下孤立的包："></a>3，清理 Linux 下孤立的包：</h4><p>终端命令下我们可以用：<br><code>sudo apt-get install deborphan -y</code></p>
+<h4 id="4，卸载：tracker"><a href="#4，卸载：tracker" class="headerlink" title="4，卸载：tracker"></a>4，卸载：tracker</h4><p>这个东西一般我只要安装 ubuntu 就会第一删掉 tracker 他不仅会产生大量的 cache 文件而且还会影响开机速度。所以在新得利里面删掉就行。<br>附录：<br>包管理的临时文件目录:<br>包在<br><code>/var/cache/apt/archives</code><br>没有下载完的在<br><code>/var/cache/apt/archives/partial</code></p>
+<h2 id="二、删除软件"><a href="#二、删除软件" class="headerlink" title="二、删除软件"></a>二、删除软件</h2><p>ubuntu 软件的删除一般用“ubuntu 软件中心”或“新立得”就能搞定，但有时用命令似乎更快更好～～<br><code>sudo apt-get remove --purge</code> 软件名<br><code>sudo apt-get autoremove</code> 删除系统不再使用的孤立软件<br><code>sudo apt-get autoclean</code> 清理旧版本的软件缓存<br><code>dpkg -l |grep ^rc|awk &#39;&#123;print \$2&#125;&#39; |sudo xargs dpkg -P</code> 清除残余的配置文件<br>保证干净。</p>
+<h2 id="三、删除多余内核"><a href="#三、删除多余内核" class="headerlink" title="三、删除多余内核"></a>三、删除多余内核</h2><h4 id="1，首先要使用这个命令查看当前-Ubuntu-系统使用的内核"><a href="#1，首先要使用这个命令查看当前-Ubuntu-系统使用的内核" class="headerlink" title="1，首先要使用这个命令查看当前 Ubuntu 系统使用的内核"></a>1，首先要使用这个命令查看当前 Ubuntu 系统使用的内核</h4><p><code>uname -a</code></p>
+<h4 id="2，再查看所有内核"><a href="#2，再查看所有内核" class="headerlink" title="2，再查看所有内核"></a>2，再查看所有内核</h4><p><code>dpkg --get-selections|grep linux</code></p>
+<h4 id="3，最后小心翼翼地删除吧"><a href="#3，最后小心翼翼地删除吧" class="headerlink" title="3，最后小心翼翼地删除吧"></a>3，最后小心翼翼地删除吧</h4><p><code>sudo apt-get remove linux-image-2.6.32-22-generic</code><br>ps：linux-image-xxxxxx-generic 就是要删除的内核版本<br>还有<br><code>linux-headers-xxxxxx</code><br><code>linux-headers-xxxxxx-generic</code> 总之中间有“xxxxxx”那段的旧内核都能删，注意一般选内核号较小的删</p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持forsigner</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2015/12/27/essay/techs/forcePointToGoogle/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2015/12/27/algorithm/OJ/maxSumHUOJ/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/categories/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tags/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '277317290454635afa73',
+  clientSecret: '78223c859304da5e8d71bfce136d436c6ff95c37',
+  repo: 'blog-comment',
+  owner: 'forsigner',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: md5(location.pathname),
+  admin: ['forsigner'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
