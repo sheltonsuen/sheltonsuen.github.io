@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="/_next/static/chunks/webpack-03563fcad3d02ed9.js" defer=""></script><script src="/_next/static/chunks/framework-9c6699f00da9ef7f.js" defer=""></script><script src="/_next/static/chunks/main-f7f281abfe54e061.js" defer=""></script><script src="/_next/static/chunks/pages/_app-d2deb313455691a8.js" defer=""></script><script src="/_next/static/chunks/pages/blogs/%5Bname%5D-4342b73136a71757.js" defer=""></script><script src="/_next/static/GIxLJvreVfvbEW9s1Z3ft/_buildManifest.js" defer=""></script><script src="/_next/static/GIxLJvreVfvbEW9s1Z3ft/_ssgManifest.js" defer=""></script><script src="/_next/static/GIxLJvreVfvbEW9s1Z3ft/_middlewareManifest.js" defer=""></script><style data-styled="" data-styled-version="5.3.3"></style></head><body><div id="__next" data-reactroot=""><div><h1>Web Animation</h1>
+<p>Animations are a huge part of making compelling web applications and sites.</p>
+<h2>How to implement</h2>
+<ul>
+<li>CSS Transition &#x26; CSS Animation</li>
+<li>Web Animation API</li>
+<li>requestAnimationFrame</li>
+</ul>
+<h3>CSS Transition &#x26; CSS Animation</h3>
+<h4>CSS Transition</h4>
+<p>Create gradual transitions between the values of specific CSS properties.</p>
+<ul>
+<li>
+<p><a href="../../../src/web/animation/demo/index.html">Demo Link</a></p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions">MDN Documentation</a></p>
+</li>
+</ul>
+<h5>Concepts</h5>
+<p>CSS transitions let you decide</p>
+<ul>
+<li>
+<p>which properties to animate
+by listing them explicitly</p>
+</li>
+<li>
+<p>when the animation will start
+by setting a delay (seconds)</p>
+</li>
+<li>
+<p>how long the transition will last
+by setting a duration</p>
+</li>
+<li>
+<p>how the transition will run
+by defining a timing function</p>
+</li>
+</ul>
+<h6>Choose properties to animate</h6>
+<p>Specifies the name or names of the CSS properties to which transitions should be applied.</p>
+<ul>
+<li>Using <code>transition-property</code></li>
+</ul>
+<pre><code>.swa-flight {
+  transition-property: margin-left, margin-bottom;
+}
+</code></pre>
+<ul>
+<li>Using <code>transition</code> as shorthand</li>
+</ul>
+<pre><code>.swa-flight {
+  transition: margin-left, margin-bottom;
+}
+</code></pre>
+<blockquote>
+<p>if just declare the property, changes to the properties occur as usual.</p>
+</blockquote>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">List of properties can be animated</a></p>
+<p>Using CSS transform property
+The transform CSS property lets you rotate, scale, skew, or translate an element. It modifies the coordinate space of the CSS visual formatting model.
+<a href="https://www.quackit.com/css/functions/css_matrix_function.cfm">MDN transform doc</a></p>
+<h6>Set the animation duration</h6>
+<p>Specifies the duration over which transitions should occur.</p>
+<ul>
+<li>Using <code>transition-duration</code></li>
+</ul>
+<pre><code>.swa-flight {
+  transition-property: mrigin-left, margin-bottom;
+  transition-duration: 8s, 4s;
+}
+</code></pre>
+<ul>
+<li>Using <code>transition</code> as shorthand</li>
+</ul>
+<pre><code>.swa-flight {
+  transition: width 8s, height 4s;
+}
+</code></pre>
+<h6>Set up a timing-function</h6>
+<p>Specifies a function to define how intermediate values for properties are computed.</p>
+<ul>
+<li>Using <code>transition-timing-function</code></li>
+</ul>
+<pre><code>.swa-flight {
+  transition-property: margin-left, margin-bottom;
+  transition-duration: 8s, 4s;
+  transition-timing-function: cubic-bezier(0.51, 0.18, 0.79, 0.53), cubic-bezier(0.7, 0.21, 1, 1);
+}
+</code></pre>
+<ul>
+<li>Using <code>transition</code> as shorthand</li>
+</ul>
+<pre><code>.swa-flight {
+  transition: margin-left 8s cubic-bezier(0.51, 0.18, 0.79, 0.53), margin-bottom
+      4s cubic-bezier(0.7, 0.21, 1, 1);
+}
+</code></pre>
+<p><a href="https://easings.net/">Easing function list</a></p>
+<p><a href="http://cubic-bezier.com">cubic-bezier</a></p>
+<h6>Set a deply</h6>
+<p>Defines how long to wait between the time a property is changed and the transition actually begins.</p>
+<ul>
+<li>Using <code>transition-delay</code></li>
+</ul>
+<pre><code>.swa-flight {
+  transition-property: margin-left, margin-bottom;
+  transition-duration: 8s, 4s;
+  transition-timing-function: cubic-bezier(0.51, 0.18, 0.79, 0.53), cubic-bezier(0.7, 0.21, 1, 1);
+  transition-delay: 0s, 4s;
+}
+</code></pre>
+<ul>
+<li>Using <code>transition</code> as shorthand</li>
+</ul>
+<pre><code>.swa-flight {
+  transition: margin-left 8s cubic-bezier(0.51, 0.18, 0.79, 0.53), margin-bottom
+      4s cubic-bezier(0.7, 0.21, 1, 1) 4s;
+}
+</code></pre>
+<h4>CSS Animation</h4>
+<p>Animations consist of two components, a style describing the CSS animation and a set of keyframes that indicate the start and end states of the animation’s style, as well as possible intermediate waypoints.</p>
+<h6>Describing the animation</h6>
+<p>Below properties can be shorted as <code>animation</code> property.</p>
+<ul>
+<li><code>animation-name</code></li>
+<li><code>animation-duration</code></li>
+<li><code>animation-timing-function</code></li>
+<li><code>animation-delay</code></li>
+<li><code>animation-iteration-count</code></li>
+<li><code>animation-direction</code></li>
+<li><code>animation-fill-mode</code></li>
+<li><code>animation-play-state</code></li>
+</ul>
+<h6>Describing the animation's style</h6>
+<p>The <code>@keyframes</code> CSS at-rule controls the intermediate steps in a CSS animation sequence</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes">MDN Doc</a></p>
+<h6>events</h6>
+<p><code>animationiteration</code>, <code>animationend</code>, <code>animationstart</code></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations">MDN Doc</a></p>
+<h3>Web Animation API</h3>
+<p>The Web Animations API lets us construct animations and control their playback with JavaScript.</p>
+<h4>Concepts</h4>
+<ul>
+<li>Timing</li>
+<li>Animation</li>
+<li>Animation Effect</li>
+</ul>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Web_Animations_API_Concepts">MDN Doc</a></p>
+<h5>Timing options</h5>
+<p>Including duratiion, fill ... etc</p>
+<h5>Animation Effect</h5>
+<p>It's a bundle of information including at the bare minimum a set of keys and the duration they need to be animated over.</p>
+<h5>Animation</h5>
+<p>Use the Animation Object’s methods to play, pause, seek, and control the animation’s playback direction and speed.</p>
+<pre><code>const drinking = document
+  .getElementById('liquid')
+  .animate([{ height: '100%' }, { height: '0' }], {
+    fill: 'forwards',
+    duration: 2000
+  });
+drinking.pause();
+</code></pre>
+<h3>requestAnimationFrame</h3>
+<p>tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint.</p>
+<h4>Syntax</h4>
+<p><code>window.requestAnimationFrame(callback);</code></p>
+</div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"blog":{"name":"web_animation.md","content":"\n# Web Animation\n\nAnimations are a huge part of making compelling web applications and sites.\n\n## How to implement\n\n- CSS Transition \u0026 CSS Animation\n- Web Animation API\n- requestAnimationFrame\n\n### CSS Transition \u0026 CSS Animation\n\n#### CSS Transition\n\nCreate gradual transitions between the values of specific CSS properties.\n\n- [Demo Link](../../../src/web/animation/demo/index.html)\n\n- [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions)\n\n##### Concepts\n\nCSS transitions let you decide\n\n- which properties to animate\n  by listing them explicitly\n\n- when the animation will start\n  by setting a delay (seconds)\n\n- how long the transition will last\n  by setting a duration\n\n- how the transition will run\n  by defining a timing function\n\n###### Choose properties to animate\n\nSpecifies the name or names of the CSS properties to which transitions should be applied.\n\n- Using `transition-property`\n\n```css\n.swa-flight {\n  transition-property: margin-left, margin-bottom;\n}\n```\n\n- Using `transition` as shorthand\n\n```css\n.swa-flight {\n  transition: margin-left, margin-bottom;\n}\n```\n\n\u003e if just declare the property, changes to the properties occur as usual.\n\n[List of properties can be animated](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties)\n\nUsing CSS transform property\nThe transform CSS property lets you rotate, scale, skew, or translate an element. It modifies the coordinate space of the CSS visual formatting model.\n[MDN transform doc](https://www.quackit.com/css/functions/css_matrix_function.cfm)\n\n###### Set the animation duration\n\nSpecifies the duration over which transitions should occur.\n\n- Using `transition-duration`\n\n```css\n.swa-flight {\n  transition-property: mrigin-left, margin-bottom;\n  transition-duration: 8s, 4s;\n}\n```\n\n- Using `transition` as shorthand\n\n```css\n.swa-flight {\n  transition: width 8s, height 4s;\n}\n```\n\n###### Set up a timing-function\n\nSpecifies a function to define how intermediate values for properties are computed.\n\n- Using `transition-timing-function`\n\n```css\n.swa-flight {\n  transition-property: margin-left, margin-bottom;\n  transition-duration: 8s, 4s;\n  transition-timing-function: cubic-bezier(0.51, 0.18, 0.79, 0.53), cubic-bezier(0.7, 0.21, 1, 1);\n}\n```\n\n- Using `transition` as shorthand\n\n```css\n.swa-flight {\n  transition: margin-left 8s cubic-bezier(0.51, 0.18, 0.79, 0.53), margin-bottom\n      4s cubic-bezier(0.7, 0.21, 1, 1);\n}\n```\n\n[Easing function list](https://easings.net/)\n\n[cubic-bezier](http://cubic-bezier.com)\n\n###### Set a deply\n\nDefines how long to wait between the time a property is changed and the transition actually begins.\n\n- Using `transition-delay`\n\n```css\n.swa-flight {\n  transition-property: margin-left, margin-bottom;\n  transition-duration: 8s, 4s;\n  transition-timing-function: cubic-bezier(0.51, 0.18, 0.79, 0.53), cubic-bezier(0.7, 0.21, 1, 1);\n  transition-delay: 0s, 4s;\n}\n```\n\n- Using `transition` as shorthand\n\n```css\n.swa-flight {\n  transition: margin-left 8s cubic-bezier(0.51, 0.18, 0.79, 0.53), margin-bottom\n      4s cubic-bezier(0.7, 0.21, 1, 1) 4s;\n}\n```\n\n#### CSS Animation\n\nAnimations consist of two components, a style describing the CSS animation and a set of keyframes that indicate the start and end states of the animation’s style, as well as possible intermediate waypoints.\n\n###### Describing the animation\n\nBelow properties can be shorted as `animation` property.\n\n- `animation-name`\n- `animation-duration`\n- `animation-timing-function`\n- `animation-delay`\n- `animation-iteration-count`\n- `animation-direction`\n- `animation-fill-mode`\n- `animation-play-state`\n\n###### Describing the animation's style\n\nThe `@keyframes` CSS at-rule controls the intermediate steps in a CSS animation sequence\n\n[MDN Doc](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)\n\n###### events\n\n`animationiteration`, `animationend`, `animationstart`\n\n[MDN Doc](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations)\n\n### Web Animation API\n\nThe Web Animations API lets us construct animations and control their playback with JavaScript.\n\n#### Concepts\n\n- Timing\n- Animation\n- Animation Effect\n\n[MDN Doc](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Web_Animations_API_Concepts)\n\n##### Timing options\n\nIncluding duratiion, fill ... etc\n\n##### Animation Effect\n\nIt's a bundle of information including at the bare minimum a set of keys and the duration they need to be animated over.\n\n##### Animation\n\nUse the Animation Object’s methods to play, pause, seek, and control the animation’s playback direction and speed.\n\n```javascript\nconst drinking = document\n  .getElementById('liquid')\n  .animate([{ height: '100%' }, { height: '0' }], {\n    fill: 'forwards',\n    duration: 2000\n  });\ndrinking.pause();\n```\n\n### requestAnimationFrame\n\ntells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint.\n\n#### Syntax\n\n`window.requestAnimationFrame(callback);`\n","meta":{"title":"Web Animation","date":"Tue Aug 28 2018 00:00:00 GMT+0000 (Coordinated Universal Time)","tags":"essay"}},"html":"\u003ch1\u003eWeb Animation\u003c/h1\u003e\n\u003cp\u003eAnimations are a huge part of making compelling web applications and sites.\u003c/p\u003e\n\u003ch2\u003eHow to implement\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eCSS Transition \u0026#x26; CSS Animation\u003c/li\u003e\n\u003cli\u003eWeb Animation API\u003c/li\u003e\n\u003cli\u003erequestAnimationFrame\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eCSS Transition \u0026#x26; CSS Animation\u003c/h3\u003e\n\u003ch4\u003eCSS Transition\u003c/h4\u003e\n\u003cp\u003eCreate gradual transitions between the values of specific CSS properties.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"../../../src/web/animation/demo/index.html\"\u003eDemo Link\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions\"\u003eMDN Documentation\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch5\u003eConcepts\u003c/h5\u003e\n\u003cp\u003eCSS transitions let you decide\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003ewhich properties to animate\nby listing them explicitly\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ewhen the animation will start\nby setting a delay (seconds)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ehow long the transition will last\nby setting a duration\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ehow the transition will run\nby defining a timing function\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch6\u003eChoose properties to animate\u003c/h6\u003e\n\u003cp\u003eSpecifies the name or names of the CSS properties to which transitions should be applied.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eUsing \u003ccode\u003etransition-property\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e.swa-flight {\n  transition-property: margin-left, margin-bottom;\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003eUsing \u003ccode\u003etransition\u003c/code\u003e as shorthand\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e.swa-flight {\n  transition: margin-left, margin-bottom;\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cblockquote\u003e\n\u003cp\u003eif just declare the property, changes to the properties occur as usual.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e\u003ca href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties\"\u003eList of properties can be animated\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eUsing CSS transform property\nThe transform CSS property lets you rotate, scale, skew, or translate an element. It modifies the coordinate space of the CSS visual formatting model.\n\u003ca href=\"https://www.quackit.com/css/functions/css_matrix_function.cfm\"\u003eMDN transform doc\u003c/a\u003e\u003c/p\u003e\n\u003ch6\u003eSet the animation duration\u003c/h6\u003e\n\u003cp\u003eSpecifies the duration over which transitions should occur.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eUsing \u003ccode\u003etransition-duration\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e.swa-flight {\n  transition-property: mrigin-left, margin-bottom;\n  transition-duration: 8s, 4s;\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003eUsing \u003ccode\u003etransition\u003c/code\u003e as shorthand\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e.swa-flight {\n  transition: width 8s, height 4s;\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch6\u003eSet up a timing-function\u003c/h6\u003e\n\u003cp\u003eSpecifies a function to define how intermediate values for properties are computed.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eUsing \u003ccode\u003etransition-timing-function\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e.swa-flight {\n  transition-property: margin-left, margin-bottom;\n  transition-duration: 8s, 4s;\n  transition-timing-function: cubic-bezier(0.51, 0.18, 0.79, 0.53), cubic-bezier(0.7, 0.21, 1, 1);\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003eUsing \u003ccode\u003etransition\u003c/code\u003e as shorthand\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e.swa-flight {\n  transition: margin-left 8s cubic-bezier(0.51, 0.18, 0.79, 0.53), margin-bottom\n      4s cubic-bezier(0.7, 0.21, 1, 1);\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://easings.net/\"\u003eEasing function list\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"http://cubic-bezier.com\"\u003ecubic-bezier\u003c/a\u003e\u003c/p\u003e\n\u003ch6\u003eSet a deply\u003c/h6\u003e\n\u003cp\u003eDefines how long to wait between the time a property is changed and the transition actually begins.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eUsing \u003ccode\u003etransition-delay\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e.swa-flight {\n  transition-property: margin-left, margin-bottom;\n  transition-duration: 8s, 4s;\n  transition-timing-function: cubic-bezier(0.51, 0.18, 0.79, 0.53), cubic-bezier(0.7, 0.21, 1, 1);\n  transition-delay: 0s, 4s;\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003eUsing \u003ccode\u003etransition\u003c/code\u003e as shorthand\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e.swa-flight {\n  transition: margin-left 8s cubic-bezier(0.51, 0.18, 0.79, 0.53), margin-bottom\n      4s cubic-bezier(0.7, 0.21, 1, 1) 4s;\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eCSS Animation\u003c/h4\u003e\n\u003cp\u003eAnimations consist of two components, a style describing the CSS animation and a set of keyframes that indicate the start and end states of the animation’s style, as well as possible intermediate waypoints.\u003c/p\u003e\n\u003ch6\u003eDescribing the animation\u003c/h6\u003e\n\u003cp\u003eBelow properties can be shorted as \u003ccode\u003eanimation\u003c/code\u003e property.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eanimation-name\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eanimation-duration\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eanimation-timing-function\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eanimation-delay\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eanimation-iteration-count\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eanimation-direction\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eanimation-fill-mode\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eanimation-play-state\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch6\u003eDescribing the animation's style\u003c/h6\u003e\n\u003cp\u003eThe \u003ccode\u003e@keyframes\u003c/code\u003e CSS at-rule controls the intermediate steps in a CSS animation sequence\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes\"\u003eMDN Doc\u003c/a\u003e\u003c/p\u003e\n\u003ch6\u003eevents\u003c/h6\u003e\n\u003cp\u003e\u003ccode\u003eanimationiteration\u003c/code\u003e, \u003ccode\u003eanimationend\u003c/code\u003e, \u003ccode\u003eanimationstart\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations\"\u003eMDN Doc\u003c/a\u003e\u003c/p\u003e\n\u003ch3\u003eWeb Animation API\u003c/h3\u003e\n\u003cp\u003eThe Web Animations API lets us construct animations and control their playback with JavaScript.\u003c/p\u003e\n\u003ch4\u003eConcepts\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eTiming\u003c/li\u003e\n\u003cli\u003eAnimation\u003c/li\u003e\n\u003cli\u003eAnimation Effect\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ca href=\"https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Web_Animations_API_Concepts\"\u003eMDN Doc\u003c/a\u003e\u003c/p\u003e\n\u003ch5\u003eTiming options\u003c/h5\u003e\n\u003cp\u003eIncluding duratiion, fill ... etc\u003c/p\u003e\n\u003ch5\u003eAnimation Effect\u003c/h5\u003e\n\u003cp\u003eIt's a bundle of information including at the bare minimum a set of keys and the duration they need to be animated over.\u003c/p\u003e\n\u003ch5\u003eAnimation\u003c/h5\u003e\n\u003cp\u003eUse the Animation Object’s methods to play, pause, seek, and control the animation’s playback direction and speed.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003econst drinking = document\n  .getElementById('liquid')\n  .animate([{ height: '100%' }, { height: '0' }], {\n    fill: 'forwards',\n    duration: 2000\n  });\ndrinking.pause();\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003erequestAnimationFrame\u003c/h3\u003e\n\u003cp\u003etells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint.\u003c/p\u003e\n\u003ch4\u003eSyntax\u003c/h4\u003e\n\u003cp\u003e\u003ccode\u003ewindow.requestAnimationFrame(callback);\u003c/code\u003e\u003c/p\u003e\n"},"__N_SSG":true},"page":"/blogs/[name]","query":{"name":"web_animation.md"},"buildId":"GIxLJvreVfvbEW9s1Z3ft","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
