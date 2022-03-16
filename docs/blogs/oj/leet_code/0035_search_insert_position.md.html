@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="/_next/static/chunks/webpack-03563fcad3d02ed9.js" defer=""></script><script src="/_next/static/chunks/framework-9c6699f00da9ef7f.js" defer=""></script><script src="/_next/static/chunks/main-f7f281abfe54e061.js" defer=""></script><script src="/_next/static/chunks/pages/_app-d2deb313455691a8.js" defer=""></script><script src="/_next/static/chunks/278-1294b75f2856d73b.js" defer=""></script><script src="/_next/static/chunks/pages/blogs/%5B...names%5D-414cabc0f0000649.js" defer=""></script><script src="/_next/static/ryv2_ZYxpQYBOyt4YCM4q/_buildManifest.js" defer=""></script><script src="/_next/static/ryv2_ZYxpQYBOyt4YCM4q/_ssgManifest.js" defer=""></script><script src="/_next/static/ryv2_ZYxpQYBOyt4YCM4q/_middlewareManifest.js" defer=""></script><style data-styled="" data-styled-version="5.3.3">.kmIGOi{padding:16px 0;margin:0 auto;width:720px;}/*!sc*/
+data-styled.g1[id="PageWrapper__Wrapper-sc-859ve4-0"]{content:"kmIGOi,"}/*!sc*/
+</style></head><body><div id="__next" data-reactroot=""><div class="PageWrapper__Wrapper-sc-859ve4-0 kmIGOi"><div><h1>Search Insert Position</h1>
+<h2>Descripition</h2>
+<h2>Solutions</h2>
+<h3>First Idea</h3>
+<pre><code>/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var searchInsert = function (nums, target) {
+  let low = 0
+  let high = nums.length - 1
+
+  // only ->> [low v high] [low v, v high] ->> [low, high]
+  while (low &#x3C; high) {
+    const middle = low + Math.floor((high - low) / 2)
+    if (nums[middle] === target) {
+      return middle
+    }
+
+    nums[middle] &#x3C; target ? (low = middle + 1) : (high = middle - 1)
+  }
+
+  return target > nums[low] ? low + 1 : low
+}
+</code></pre>
+<p>-- Time Complexity: O(logn)
+-- Space Complexity: O(1)</p>
+</div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"blog":{"name":"0035_search_insert_position.md","categories":["oj","leet_code"],"content":"\n# Search Insert Position\n\n## Descripition\n\n## Solutions\n\n### First Idea\n\n```javascript\n/**\n * @param {number[]} nums\n * @param {number} target\n * @return {number}\n */\nvar searchInsert = function (nums, target) {\n  let low = 0\n  let high = nums.length - 1\n\n  // only -\u003e\u003e [low v high] [low v, v high] -\u003e\u003e [low, high]\n  while (low \u003c high) {\n    const middle = low + Math.floor((high - low) / 2)\n    if (nums[middle] === target) {\n      return middle\n    }\n\n    nums[middle] \u003c target ? (low = middle + 1) : (high = middle - 1)\n  }\n\n  return target \u003e nums[low] ? low + 1 : low\n}\n```\n\n-- Time Complexity: O(logn)\n-- Space Complexity: O(1)\n","meta":{"title":"Search Insert Position","date":"Tue Feb 22 2022 00:00:00 GMT+0000 (Coordinated Universal Time)","tags":"oj","private":false}},"html":"\u003ch1\u003eSearch Insert Position\u003c/h1\u003e\n\u003ch2\u003eDescripition\u003c/h2\u003e\n\u003ch2\u003eSolutions\u003c/h2\u003e\n\u003ch3\u003eFirst Idea\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e/**\n * @param {number[]} nums\n * @param {number} target\n * @return {number}\n */\nvar searchInsert = function (nums, target) {\n  let low = 0\n  let high = nums.length - 1\n\n  // only -\u003e\u003e [low v high] [low v, v high] -\u003e\u003e [low, high]\n  while (low \u0026#x3C; high) {\n    const middle = low + Math.floor((high - low) / 2)\n    if (nums[middle] === target) {\n      return middle\n    }\n\n    nums[middle] \u0026#x3C; target ? (low = middle + 1) : (high = middle - 1)\n  }\n\n  return target \u003e nums[low] ? low + 1 : low\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e-- Time Complexity: O(logn)\n-- Space Complexity: O(1)\u003c/p\u003e\n"},"__N_SSG":true},"page":"/blogs/[...names]","query":{"names":["oj","leet_code","0035_search_insert_position.md"]},"buildId":"ryv2_ZYxpQYBOyt4YCM4q","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

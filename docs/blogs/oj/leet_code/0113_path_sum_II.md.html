@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="/_next/static/chunks/webpack-03563fcad3d02ed9.js" defer=""></script><script src="/_next/static/chunks/framework-9c6699f00da9ef7f.js" defer=""></script><script src="/_next/static/chunks/main-f7f281abfe54e061.js" defer=""></script><script src="/_next/static/chunks/pages/_app-d2deb313455691a8.js" defer=""></script><script src="/_next/static/chunks/278-1294b75f2856d73b.js" defer=""></script><script src="/_next/static/chunks/pages/blogs/%5B...names%5D-414cabc0f0000649.js" defer=""></script><script src="/_next/static/ryv2_ZYxpQYBOyt4YCM4q/_buildManifest.js" defer=""></script><script src="/_next/static/ryv2_ZYxpQYBOyt4YCM4q/_ssgManifest.js" defer=""></script><script src="/_next/static/ryv2_ZYxpQYBOyt4YCM4q/_middlewareManifest.js" defer=""></script><style data-styled="" data-styled-version="5.3.3">.kmIGOi{padding:16px 0;margin:0 auto;width:720px;}/*!sc*/
+data-styled.g1[id="PageWrapper__Wrapper-sc-859ve4-0"]{content:"kmIGOi,"}/*!sc*/
+</style></head><body><div id="__next" data-reactroot=""><div class="PageWrapper__Wrapper-sc-859ve4-0 kmIGOi"><div><h1>Path Sum II</h1>
+<h2>Description</h2>
+<p><a href="https://leetcode.com/problems/path-sum-ii/">doc</a></p>
+<h2>Solutions</h2>
+<h3>First Idea</h3>
+<pre><code>/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {number} targetSum
+ * @return {number[][]}
+ */
+var pathSum = function (root, targetSum) {
+  if (root === null) {
+    return []
+  }
+
+  const leftVal = targetSum - root.val
+  if (root.left === null &#x26;&#x26; root.right === null) {
+    return leftVal ? [] : [[root.val]]
+  }
+
+  const left = pathSum(root.left, leftVal)
+  const right = pathSum(root.right, leftVal)
+
+  return [...left, ...right].map((v) => [root.val, ...v])
+}
+</code></pre>
+<ul>
+<li>Time Complexity: O(n)</li>
+<li>Space Complexity: O(n)</li>
+</ul>
+<h3>BFS</h3>
+<pre><code>/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {number} targetSum
+ * @return {number[][]}
+ */
+var pathSum = function (root, targetSum) {
+  if (root === null) {
+    return []
+  }
+
+  root.vals = [root.val]
+  let queue = [root]
+  let result = []
+
+  while (queue.length) {
+    const cur = queue.shift()
+
+    if (cur.left === null &#x26;&#x26; cur.right === null &#x26;&#x26; cur.val === targetSum) {
+      result.push(cur.vals)
+      continue
+    }
+
+    if (cur.left) {
+      cur.left.vals = [...cur.vals, cur.left.val]
+      cur.left.val += cur.val
+      queue.push(cur.left)
+    }
+
+    if (cur.right) {
+      cur.right.vals = [...cur.vals, cur.right.val]
+      cur.right.val += cur.val
+      queue.push(cur.right)
+    }
+  }
+
+  return result
+}
+</code></pre>
+<ul>
+<li>Time Complexity: O(n)</li>
+<li>Space Complexity: O(nlogn)</li>
+</ul>
+</div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"blog":{"name":"0113_path_sum_II.md","categories":["oj","leet_code"],"content":"\n# Path Sum II\n\n## Description\n\n[doc](https://leetcode.com/problems/path-sum-ii/)\n\n## Solutions\n\n### First Idea\n\n```javascript\n/**\n * Definition for a binary tree node.\n * function TreeNode(val, left, right) {\n *     this.val = (val===undefined ? 0 : val)\n *     this.left = (left===undefined ? null : left)\n *     this.right = (right===undefined ? null : right)\n * }\n */\n/**\n * @param {TreeNode} root\n * @param {number} targetSum\n * @return {number[][]}\n */\nvar pathSum = function (root, targetSum) {\n  if (root === null) {\n    return []\n  }\n\n  const leftVal = targetSum - root.val\n  if (root.left === null \u0026\u0026 root.right === null) {\n    return leftVal ? [] : [[root.val]]\n  }\n\n  const left = pathSum(root.left, leftVal)\n  const right = pathSum(root.right, leftVal)\n\n  return [...left, ...right].map((v) =\u003e [root.val, ...v])\n}\n```\n\n- Time Complexity: O(n)\n- Space Complexity: O(n)\n\n### BFS\n\n```javascript\n/**\n * Definition for a binary tree node.\n * function TreeNode(val, left, right) {\n *     this.val = (val===undefined ? 0 : val)\n *     this.left = (left===undefined ? null : left)\n *     this.right = (right===undefined ? null : right)\n * }\n */\n/**\n * @param {TreeNode} root\n * @param {number} targetSum\n * @return {number[][]}\n */\nvar pathSum = function (root, targetSum) {\n  if (root === null) {\n    return []\n  }\n\n  root.vals = [root.val]\n  let queue = [root]\n  let result = []\n\n  while (queue.length) {\n    const cur = queue.shift()\n\n    if (cur.left === null \u0026\u0026 cur.right === null \u0026\u0026 cur.val === targetSum) {\n      result.push(cur.vals)\n      continue\n    }\n\n    if (cur.left) {\n      cur.left.vals = [...cur.vals, cur.left.val]\n      cur.left.val += cur.val\n      queue.push(cur.left)\n    }\n\n    if (cur.right) {\n      cur.right.vals = [...cur.vals, cur.right.val]\n      cur.right.val += cur.val\n      queue.push(cur.right)\n    }\n  }\n\n  return result\n}\n```\n\n- Time Complexity: O(n)\n- Space Complexity: O(nlogn)\n","meta":{"title":"Path Sum II","date":"Tue Feb 22 2022 00:00:00 GMT+0000 (Coordinated Universal Time)","tags":"oj","private":false}},"html":"\u003ch1\u003ePath Sum II\u003c/h1\u003e\n\u003ch2\u003eDescription\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://leetcode.com/problems/path-sum-ii/\"\u003edoc\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003eSolutions\u003c/h2\u003e\n\u003ch3\u003eFirst Idea\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e/**\n * Definition for a binary tree node.\n * function TreeNode(val, left, right) {\n *     this.val = (val===undefined ? 0 : val)\n *     this.left = (left===undefined ? null : left)\n *     this.right = (right===undefined ? null : right)\n * }\n */\n/**\n * @param {TreeNode} root\n * @param {number} targetSum\n * @return {number[][]}\n */\nvar pathSum = function (root, targetSum) {\n  if (root === null) {\n    return []\n  }\n\n  const leftVal = targetSum - root.val\n  if (root.left === null \u0026#x26;\u0026#x26; root.right === null) {\n    return leftVal ? [] : [[root.val]]\n  }\n\n  const left = pathSum(root.left, leftVal)\n  const right = pathSum(root.right, leftVal)\n\n  return [...left, ...right].map((v) =\u003e [root.val, ...v])\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003eTime Complexity: O(n)\u003c/li\u003e\n\u003cli\u003eSpace Complexity: O(n)\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eBFS\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e/**\n * Definition for a binary tree node.\n * function TreeNode(val, left, right) {\n *     this.val = (val===undefined ? 0 : val)\n *     this.left = (left===undefined ? null : left)\n *     this.right = (right===undefined ? null : right)\n * }\n */\n/**\n * @param {TreeNode} root\n * @param {number} targetSum\n * @return {number[][]}\n */\nvar pathSum = function (root, targetSum) {\n  if (root === null) {\n    return []\n  }\n\n  root.vals = [root.val]\n  let queue = [root]\n  let result = []\n\n  while (queue.length) {\n    const cur = queue.shift()\n\n    if (cur.left === null \u0026#x26;\u0026#x26; cur.right === null \u0026#x26;\u0026#x26; cur.val === targetSum) {\n      result.push(cur.vals)\n      continue\n    }\n\n    if (cur.left) {\n      cur.left.vals = [...cur.vals, cur.left.val]\n      cur.left.val += cur.val\n      queue.push(cur.left)\n    }\n\n    if (cur.right) {\n      cur.right.vals = [...cur.vals, cur.right.val]\n      cur.right.val += cur.val\n      queue.push(cur.right)\n    }\n  }\n\n  return result\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003eTime Complexity: O(n)\u003c/li\u003e\n\u003cli\u003eSpace Complexity: O(nlogn)\u003c/li\u003e\n\u003c/ul\u003e\n"},"__N_SSG":true},"page":"/blogs/[...names]","query":{"names":["oj","leet_code","0113_path_sum_II.md"]},"buildId":"ryv2_ZYxpQYBOyt4YCM4q","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
